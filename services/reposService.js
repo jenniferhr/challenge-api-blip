@@ -8,7 +8,7 @@ async function getAndManipulateRepos(organization) {
 
     const reposByLanguage = repos
     .filter((repo) => repo.language === targetLanguage)
-    .map(repo => ({ 'name': repo.name, 'description': repo.description, 'created_at': repo.created_at}));
+    .map(repo => ({ 'name': repo.name, 'description': repo.description, 'created_at': repo.created_at, 'avatar': repo.owner.avatar_url}));
 
     const firstFiveRepos = reposByLanguage.slice(0,5);
     return firstFiveRepos;
@@ -18,5 +18,3 @@ async function getAndManipulateRepos(organization) {
 }
 
 module.exports = { getAndManipulateRepos }
-
-
