@@ -10,7 +10,7 @@ async function getAndManipulateRepos(organization) {
     .filter((repo) => repo.language === targetLanguage)
     .map(repo => ({ 'name': repo.name, 'description': repo.description, 'created_at': repo.created_at}));
 
-    const firstFiveRepos = reposByLanguage;
+    const firstFiveRepos = reposByLanguage.slice(0,5);
     return firstFiveRepos;
   } catch (error) {
     throw new Error('There was an error in the function to get and manipulate the repos data')
